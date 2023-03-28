@@ -4,3 +4,4 @@ class supplier:
         self.id = supplier_id
         self.name = name
         self.fk_employee_id = fk_employee_id
+

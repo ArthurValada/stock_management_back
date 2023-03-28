@@ -5,3 +5,4 @@ class manager_open_close_cashier:
         self.fk_batch_id = fk_batch_id
         self.opening_date = opening_date
         self.is_opening = is_opening
+

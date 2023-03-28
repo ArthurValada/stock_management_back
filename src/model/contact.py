@@ -6,3 +6,4 @@ class contact:
         self.number = number
         self.email = email
         self.active = active
+

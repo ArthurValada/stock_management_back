@@ -7,3 +7,4 @@ class local_incoming_contains_batch:
         self.fk_local_id = fk_local_id
         self.active= active
         self.fk_batch_id = fk_batch_id
+

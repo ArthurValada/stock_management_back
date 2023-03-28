@@ -7,3 +7,4 @@ class product:
         self.description = description
         self.active = active
         self.fk_employee_id = fk_employee_id
+

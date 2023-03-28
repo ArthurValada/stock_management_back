@@ -6,3 +6,4 @@ class client:
         self.name = name
         self.sex = sex
         self.date_of_birth = date_of_birth
+        

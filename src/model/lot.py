@@ -5,3 +5,4 @@ class lot:
         self.quantity = quantity
         self.purchase_price = purchase_price
         self.expiration_date = expiration_date
+

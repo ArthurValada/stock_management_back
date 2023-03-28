@@ -8,3 +8,4 @@ class employee:
         self.cpf = cpf
         self.password = password
         self.type = type
+        
