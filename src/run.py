@@ -1,11 +1,13 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import render_template
+import connexion
+app = connexion.App(__name__, specification_dir='./')
+app.add_api('swagger.yml')
 
 
-@app.route("/")
+@app.route('/')
 def home():
-    return "<h1>API do backend do </h1>"
+    return render_template('home.html')
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(port=8001, debug=True)
