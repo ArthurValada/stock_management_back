@@ -18,3 +18,96 @@ paths:
       responses:
         200:
           description: "API testada com sucesso"
+
+  /employee:
+    get:
+      operationId: routes.employee.read_all
+      tags:
+        - Employee
+        - Read
+      summary: Read all employees
+      responses:
+        200:
+          description: success
+    post:
+      operationId: routes.employee.create
+      tags:
+        - Employee
+        - Create
+      summary: Create a new employee
+      requestBody:
+        description: Employee data
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: employee
+              $ref: "#/components/schemas/Employee"
+      responses:
+        201:
+          description: success
+
+  /employee/{id}:
+    get:
+      operationId: routes.employee.read_one
+      tags:
+        - Employee
+        - Read
+      summary: Get a specific employee
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: success
+    put:
+      operationId: routes.employee.update
+      tags:
+        - Employee
+        - Update
+      summary: Update a employee
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: success
+    delete:
+      operationId: routes.employee.delete
+      tags:
+        - Employee
+        - Update
+      summary: Delete a employe
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        204:
+          description: success
+
+
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      description: Item identifier
+      required: true
+      schema:
+        type: integer
+
+  schemas:
+    Employee:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        date_of_birth:
+          type: string  # todo: date
+        sex:
+          type: string
+        cpf:
+          type: string
+        password:
+          type: string
+        employee_type:
+          type: integer
