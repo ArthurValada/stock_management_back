@@ -3,8 +3,8 @@ from datetime import datetime
 
 class Lot:
 
-    def __init__(self, lot_id: int, purchase_price: float, quantity: int, active: bool,
-                 expiration_date: datetime = None, fk_supplier_id: int = None):
+    def __init__(self, lot_id: int, purchase_price: float, quantity: int, active: bool, fk_supplier_id: int,
+                 expiration_date: datetime = None):
         self.id: int = lot_id
         self.quantity: int = quantity
         self.purchase_price: float = purchase_price
