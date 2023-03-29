@@ -82,6 +82,29 @@ paths:
         204:
           description: success
 
+  /login/{name}/{password}:
+    get:
+      operationId: routes.login.login_name
+      tags:
+        - Employee
+        - Get
+        - Login
+        - Auth
+      summary: "
+      Tells wich given password matchs some employee with the given name.
+      This si not safe and should be re-implemented soon.
+      "
+      parameters:
+        - $ref: '#/components/parameters/name'
+        - $ref: '#/components/parameters/password'
+      responses:
+        200:
+          description: Succefully logged in
+        401:
+          description: Unautorized
+        404:
+          description: Username not found
+
 
 components:
   parameters:
@@ -92,6 +115,19 @@ components:
       required: true
       schema:
         type: integer
+    name:
+      name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    password:
+      name: password
+      in: path
+      required: true
+      schema:
+        type: string
+
 
   schemas:
     Employee:

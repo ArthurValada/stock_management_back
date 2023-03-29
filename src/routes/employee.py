@@ -3,7 +3,7 @@ from src.model.employee import Employee
 
 # from datetime import datetime
 
-from src.run import STORAGE  # todo: remove this
+STORAGE = {42: Employee(42, 'nome', 'data', 'm', '2020202', 'senha', 2, True)}
 
 
 def id_not_found(item_id): abort(404, f'Employee with id {item_id} not found')
@@ -50,7 +50,8 @@ def update(item_id, employee):
             employee['sex'],
             employee['cpf'],
             employee['password'],
-            employee['employee_type']
+            employee['employee_type'],
+            employee['is_active']
         )
         STORAGE[new_employee.id] = new_employee
         return new_employee.__dict__
