@@ -1,13 +1,17 @@
-import string
 from datetime import datetime
-class employee:
 
-    def __init__(self, employee_id: int, name: string, date_of_birth: datetime, sex: string, cpf: string, password: string, type: int):
+
+class Employee:
+
+    def __init__(self, employee_id: int, name: str, date_of_birth: datetime, sex: str, cpf: str, password: str,
+                 employee_type: int, is_active: bool, contacts_ids: list(int) = None, sales_makes: list(int) = None):
+        self.sales_makes: list(int) = sales_makes
         self.id: int = employee_id
-        self.name: string = name
+        self.name: str = name
         self.date_of_birth: datetime = date_of_birth
-        self.sex: string = sex
-        self.cpf: string = cpf
-        self.password: string = password
-        self.type: int = type
-        
+        self.sex: str = sex
+        self.cpf: str = cpf
+        self.password: str = password
+        self.type: int = employee_type
+        self.contacts: list(int) = contacts_ids
+        self.is_active: bool = is_active
