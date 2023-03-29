@@ -1,7 +1,10 @@
+import string
+
+
 class local:
 
-    def __init__(self, local_id, description):
-        self.id = local_id
-        self.description = description
+    def __init__(self, local_id: int, description: string):
+        self.id: int = local_id
+        self.description: string = description
 
         

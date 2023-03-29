@@ -1,9 +1,13 @@
+import string
+from datetime import datetime
+
+
 class client:
 
-    def __init__(self, client_id, cpf, name, sex, date_of_birth):
-        self.id = client_id
-        self.cpf = cpf
-        self.name = name
-        self.sex = sex
-        self.date_of_birth = date_of_birth
+    def __init__(self, client_id: int, cpf: string, name: string, sex: string, date_of_birth: datetime):
+        self.id: int = client_id
+        self.cpf: string = cpf
+        self.name: string = name
+        self.sex: string = sex
+        self.date_of_birth: datetime = date_of_birth
         

@@ -1,9 +1,12 @@
+import string
+
+
 class contact:
 
-    def __init__(self, contact_id, ddd, number, active, email):
-        self.id = contact_id
-        self.ddd = ddd
-        self.number = number
-        self.email = email
-        self.active = active
+    def __init__(self, contact_id: int, ddd: int, number: int, active: bool, email: string):
+        self.id: int = contact_id
+        self.ddd: int = ddd
+        self.number: int = number
+        self.email: string = email
+        self.active: bool = active
 
