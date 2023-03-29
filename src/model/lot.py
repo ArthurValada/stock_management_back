@@ -11,4 +11,3 @@ class Lot:
         self.expiration_date: datetime = expiration_date
         self.supplied_by_supplier_id: int = fk_supplier_id
         self.active: bool = active
-
