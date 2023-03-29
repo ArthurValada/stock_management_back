@@ -11,3 +11,7 @@ def home():
 
 if __name__ == '__main__':
     app.run(port=8001, debug=True)
+    from model.employee import Employee
+    STORAGE = {
+        42: Employee(42, 'nome', 'data', 'm', '2020202', 'senha', 2, True)  # todo: serializar isto
+    }  # Variável apenas para uso em testes. todo: remover isto

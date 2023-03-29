@@ -111,3 +111,13 @@ components:
           type: string
         employee_type:
           type: integer
+        is_active:
+          type: boolean
+        contacts_id:
+          type: array
+          items:
+            type: integer
+        sales_made:
+          type: integer
+          items:
+            type: integer

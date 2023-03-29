@@ -3,21 +3,19 @@ from src.model.employee import Employee
 
 # from datetime import datetime
 
-STORAGE = {
-    42: Employee(42, 'nome', 'data', 'm', '2020202', 'senha', 2)  # todo: serializar isto
-}  # Variável apenas para uso em testes. todo: remover isto
+from src.run import STORAGE  # todo: remove this
 
 
 def id_not_found(item_id): abort(404, f'Employee with id {item_id} not found')
 
 
 def read_all():
-    return list(STORAGE.values())
+    return list(map(lambda i: i.__dict__, STORAGE.values()))
 
 
 def read_one(item_id):
     if item_id in STORAGE:
-        return STORAGE[item_id]
+        return STORAGE[item_id].__dict__
     else:
         id_not_found(item_id)
 
@@ -35,11 +33,12 @@ def create(employee):
         employee['sex'],
         employee['cpf'],
         employee['password'],
-        employee['type']
+        employee['type'],
+        employee['is_active']
     )
 
     STORAGE[new_employee.id] = new_employee
-    return new_employee, 201
+    return new_employee.__dict__, 201
 
 
 def update(item_id, employee):
@@ -54,7 +53,7 @@ def update(item_id, employee):
             employee['employee_type']
         )
         STORAGE[new_employee.id] = new_employee
-        return new_employee
+        return new_employee.__dict__
     else:
         id_not_found(item_id)
 
