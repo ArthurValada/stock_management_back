@@ -11,4 +11,3 @@ class local_incoming_contains_batch:
         self.fk_authorized_by_employee_id: int = fk_employee_id
         self.fk_local_id: int = fk_local_id
         self.fk_batch_id: int = fk_batch_id
-
