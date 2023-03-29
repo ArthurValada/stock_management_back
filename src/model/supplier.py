@@ -1,10 +1,11 @@
-import string
+class Supplier:
 
-
-class supplier:
-
-    def __init__(self, supplier_id: int, name: string, fk_employee_id: int):
+    def __init__(self, supplier_id: int, name: str, fk_employee_id: int, contact_ids: list(int),active: bool,
+                 fks_batchs_ids: list(int) = None):
         self.id: int = supplier_id
-        self.name: string = name
-        self.fk_employee_id: int = fk_employee_id
+        self.name: str = name
+        self.fk_registered_by_employee_id: int = fk_employee_id
+        self.contacts: list(int) = contact_ids
+        self.provider_batchs_ids: list(int) = fks_batchs_ids
+        self.active: bool = active
 
