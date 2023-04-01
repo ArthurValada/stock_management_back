@@ -105,6 +105,68 @@ paths:
         404:
           description: Username not found
 
+  /product:
+    get:
+      operationId: routes.product.read_all
+      tags:
+        - Product
+        - Read
+      summary: Read all products
+      responses:
+        200:
+          description: success
+    post:
+      operationId: routes.product.create
+      tags:
+        - Product
+        - Create
+      summary: Create a new product
+      requestBody:
+        description: Product data
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: employee
+              $ref: "#/components/schemas/Product"
+      responses:
+        201:
+          description: success
+
+  /product/{id}:
+    get:
+      operationId: routes.product.read_one
+      tags:
+        - Product
+        - Read
+      summary: Get a specific product
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: success
+    put:
+      operationId: routes.product.update
+      tags:
+        - Product
+        - Update
+      summary: Update a product
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: success
+    delete:
+      operationId: routes.product.delete
+      tags:
+        - Product
+        - Update
+      summary: Delete a product
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        204:
+          description: success
 
 components:
   parameters:
@@ -154,6 +216,30 @@ components:
           items:
             type: integer
         sales_made:
+          type: array
+          items:
+            type: integer
+
+    Product:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        price:
           type: integer
+        description:
+          type: string
+        active:
+          type: boolean
+        fk_registered_by:
+          type: integer
+        fk_batch:
+          type: array
+          items:
+            type: integer
+        fk_supplier:
+          type: array
           items:
             type: integer
