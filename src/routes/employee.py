@@ -1,9 +1,10 @@
 from flask import abort, make_response
-from src.model.employee import Employee
+# from src.model import employee
 
 # from datetime import datetime
 
-STORAGE = {42: Employee(42, 'nome', 'data', 'm', '2020202', 'senha', 2, True)}
+# STORAGE = {42: employee.Employee(42, 'nome', 'data', 'm', '2020202', 'senha', 2, True)}
+STORAGE = {}
 
 
 def id_not_found(item_id): abort(404, f'Employee with id {item_id} not found')
@@ -26,35 +27,36 @@ def create(employee):
     else:
         new_id = 0
 
-    new_employee = Employee(
-        new_id,  # if the framework obligates to put some id, put it -1
-        employee['name'],
-        employee['date_of_birth'],
-        employee['sex'],
-        employee['cpf'],
-        employee['password'],
-        employee['type'],
-        employee['is_active']
-    )
+    # new_employee = Employee(
+    #     new_id,  # if the framework obligates to put some id, put it -1
+    #     employee['name'],
+    #     employee['date_of_birth'],
+    #     employee['sex'],
+    #     employee['cpf'],
+    #     employee['password'],
+    #     employee['type'],
+    #     employee['is_active']
+    # )
 
-    STORAGE[new_employee.id] = new_employee
-    return new_employee.__dict__, 201
+    # STORAGE[new_employee.id] = new_employee
+    # return new_employee.__dict__, 201
 
 
 def update(item_id, employee):
     if item_id in STORAGE:
-        new_employee = Employee(
-            item_id,  # if the framework obligates to put some id, put it -1
-            employee['name'],
-            employee['date_of_birth'],
-            employee['sex'],
-            employee['cpf'],
-            employee['password'],
-            employee['employee_type'],
-            employee['is_active']
-        )
-        STORAGE[new_employee.id] = new_employee
-        return new_employee.__dict__
+        # new_employee = Employee(
+        #     item_id,  # if the framework obligates to put some id, put it -1
+        #     employee['name'],
+        #     employee['date_of_birth'],
+        #     employee['sex'],
+        #     employee['cpf'],
+        #     employee['password'],
+        #     employee['employee_type'],
+        #     employee['is_active']
+        # )
+        # STORAGE[new_employee.id] = new_employee
+        # return new_employee.__dict__, 201
+        return _, 201
     else:
         id_not_found(item_id)
 

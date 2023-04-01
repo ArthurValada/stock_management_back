@@ -1,5 +1,5 @@
 from flask import abort, make_response
-from src.model.product import Product
+# from src.model.product import Product
 
 
 def id_not_found(): pass
