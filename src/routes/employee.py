@@ -6,12 +6,13 @@ from src import db
 # todo: catch excepions
 
 
-def id_not_found(item_id): abort(404, f'Employee with id {item_id} not found')
+def id_not_found(item_id): abort(404, f'No employee with id {item_id} found')
 
 
 def read_all():
-    print('employee.read_all():\n', list(map(lambda i: serial(i), emp.Employee.query.all())))
-    return list(map(lambda i: serial(i), emp.Employee.query.all())), 200
+    items = list(map(lambda i: serial(i), emp.Employee.query.all()))
+    print('employee.read_all():\n', items)
+    return items, 200
 
 
 def read_one(**kwargs):
@@ -35,7 +36,6 @@ def update(**kwargs):
     employee = emp.Employee.query.get(kwargs['id'])
     if employee:
         employee_data = serial(employee)
-        employee_data['id'] = kwargs['id']
         employee_data.update(emp.remove_args(kwargs['body']))
 
         db.session.delete(employee)

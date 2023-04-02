@@ -3,7 +3,7 @@ from src.model import employee as emp
 
 
 def login_name(name, password):
-    same_name = emp.Employee.query.filter_by(name=name)
+    same_name = emp.Employee.query.filter_by(name=name).all()
     if not same_name:
         abort(404, f'No employee named {name} found')
 

@@ -239,7 +239,7 @@ components:
           description: Foreign key of the product register's id.
         registry_date:
           type: string
-          description: "Date in format: yyyy-mm-dd"
+          description: "Date in format: yyyy-mm-dd"  # todo: revise datatime format
         fk_batch:
           type: array
           items:
