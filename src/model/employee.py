@@ -10,7 +10,7 @@ class Employee(src.db.Model):
     sex = src.db.Column(src.db.CHAR)
     cpf = src.db.Column(src.db.String(11))
     password = src.db.Column(src.db.String(20))
-    # registers = src.db.relationship('model.product.Product', backref='register', lazy=True)
+    registers = src.db.relationship('model.product.Product', backref='employee_register', lazy=True)
     # todo: employee type?
     # todo: contact
     # todo: sales made
@@ -24,6 +24,6 @@ def remove_args(kwargs: dict) -> dict:
     kwargs.pop('sales_made', None)
     kwargs.pop('contacts_id', None)
     kwargs.pop('employee_type', None)
-    if kwargs['date_of_birth']:
+    if 'date_of_birth' in kwargs:
         kwargs['date_of_birth'] = datetime.strptime(kwargs['date_of_birth'], '%Y-%m-%d').date()
     return kwargs

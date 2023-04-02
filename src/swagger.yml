@@ -229,13 +229,17 @@ components:
         name:
           type: string
         price:
-          type: integer
+          type: number
         description:
           type: string
-        active:
+        is_active:
           type: boolean
-        fk_registered_by:
+        register:
           type: integer
+          description: Foreign key of the product register's id.
+        registry_date:
+          type: string
+          description: "Date in format: yyyy-mm-dd"
         fk_batch:
           type: array
           items:

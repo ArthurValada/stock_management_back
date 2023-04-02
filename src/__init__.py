@@ -18,6 +18,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 with app.app_context():
+    from src.model import *
     db.create_all()
 
 connexion_app.add_api('swagger.yml')
