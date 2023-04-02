@@ -1,26 +1,12 @@
-import connexion
-from flask_sqlalchemy import SQLAlchemy
-import sqlite3
-import pathlib
-
-basedir = pathlib.Path(__file__).parent.resolve()
-connexion_app = connexion.App(__name__, specification_dir=basedir)
-
-app = connexion_app.app
-
-sqlite_db_path = 'main_sqlite.db'
-sqlite3.connect(sqlite_db_path)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + sqlite_db_path
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-# connexion_app.create_app().app_context().push()
-db = SQLAlchemy(app)
-
-connexion_app.add_api('swagger.yml')
-
-with app.app_context():
-    db.create_all()
+from src import connexion_app, db
+from src.model import *
+from datetime import datetime
 
 if __name__ == '__main__':
+    with connexion_app.app.app_context():
+        # db.session.add(employee.Employee(name='nome', date_of_birth=datetime.utcnow(), sex='m',
+        #                         cpf='2020202', password='senha', is_active=True))
+        # db.session.commit()
+        print(db.metadata.tables.keys())
+
     connexion_app.run(port=8001, debug=True)
