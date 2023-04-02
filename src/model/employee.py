@@ -1,22 +1,8 @@
 import src
-
-# from datetime import datetime
-# todo: datetime
+from datetime import datetime
 
 
 class Employee(src.db.Model):
-    # def __init__(self, employee_id: int, name: str, date_of_birth: str, sex: str, cpf: str, password: str,
-    #              employee_type: int, is_active: bool, contacts_ids: list[int] = None, sales_made: list[int] = None):
-    #     self.sales_made: list[int] = sales_made
-    #     self.id: int = employee_id
-    #     self.name: str = name
-    #     self.date_of_birth: str = date_of_birth
-    #     self.sex: str = sex
-    #     self.cpf: str = cpf
-    #     self.password: str = password
-    #     self.type: int = employee_type
-    #     self.contacts: list[int] = contacts_ids
-    #     self.is_active: bool = is_active
     id = src.db.Column(src.db.Integer, primary_key=True, autoincrement=True)
     name = src.db.Column(src.db.String(50), nullable=False)
     is_active = src.db.Column(src.db.Boolean, nullable=False)
@@ -32,7 +18,12 @@ class Employee(src.db.Model):
     def __repr__(self):
         return f"Employee('{self.id}', '{self.name}', '{self.is_active}')"
 
-    def serilizable(self):
-        base_dict = self.__dict__
-        base_dict.pop('_sa_instance_state')
-        return base_dict
+
+def remove_args(kwargs: dict) -> dict:
+    kwargs.pop('id', None)
+    kwargs.pop('sales_made', None)
+    kwargs.pop('contacts_id', None)
+    kwargs.pop('employee_type', None)
+    if kwargs['date_of_birth']:
+        kwargs['date_of_birth'] = datetime.strptime(kwargs['date_of_birth'], '%Y-%m-%d').date()
+    return kwargs

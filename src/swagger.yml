@@ -200,7 +200,8 @@ components:
         name:
           type: string
         date_of_birth:
-          type: string  # todo: date
+          type: string
+          description: "Date in format: yyyy-mm-dd"
         sex:
           type: string
         cpf:
