@@ -196,6 +196,7 @@ components:
       type: object
       required:
         - name
+        - is_active
       properties:
         name:
           type: string
@@ -225,6 +226,7 @@ components:
       type: object
       required:
         - name
+        - is_active
       properties:
         name:
           type: string
