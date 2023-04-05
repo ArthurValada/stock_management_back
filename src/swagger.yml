@@ -127,7 +127,7 @@ paths:
         content:
           application/json:
             schema:
-              x-body-name: employee
+              x-body-name: product
               $ref: "#/components/schemas/Product"
       responses:
         201:

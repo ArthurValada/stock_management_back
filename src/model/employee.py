@@ -9,7 +9,7 @@ class Employee(src.db.Model):
     date_of_birth = src.db.Column(src.db.Date)
     sex = src.db.Column(src.db.CHAR)
     cpf = src.db.Column(src.db.String(11))
-    password = src.db.Column(src.db.String(20))
+    password = src.db.Column(src.db.String(20), nullable=False)
     registers = src.db.relationship('model.product.Product', backref='employee_register', lazy=True)
     # todo: employee type?
     # todo: contact

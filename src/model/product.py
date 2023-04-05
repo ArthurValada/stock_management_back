@@ -22,5 +22,5 @@ def remove_args(kwargs: dict) -> dict:
     kwargs.pop('fk_batch', None)
     kwargs.pop('fk_supplier', None)
     if 'registry_date' in kwargs:
-        kwargs['registry_date'] = datetime.strptime(kwargs['registry_date'], '%Y-%m-%d')
+        kwargs['registry_date'] = datetime.strptime(kwargs['registry_date'], '%Y-%m-%d').date()
     return kwargs
