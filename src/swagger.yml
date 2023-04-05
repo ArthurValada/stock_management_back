@@ -82,9 +82,9 @@ paths:
         204:
           description: success
 
-  /login/{name}/{password}:
+  /login/{id}/{password}:
     get:
-      operationId: routes.login.login_name
+      operationId: routes.login.login_id
       tags:
         - Employee
         - Get
@@ -95,7 +95,7 @@ paths:
       This si not safe and should be re-implemented soon.
       "
       parameters:
-        - $ref: '#/components/parameters/name'
+        - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/password'
       responses:
         200:
